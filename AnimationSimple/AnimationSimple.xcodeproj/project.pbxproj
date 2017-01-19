@@ -16,6 +16,7 @@
 		5A01F4701E2F481600E2F787 /* CircularProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A01F46F1E2F481600E2F787 /* CircularProgressViewController.m */; };
 		5A01F4721E2F488500E2F787 /* AnimationType.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A01F4711E2F488500E2F787 /* AnimationType.plist */; };
 		5A01F4751E2F4B7A00E2F787 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A01F4741E2F4B7A00E2F787 /* BaseViewController.m */; };
+		5A01F4791E2F6C8500E2F787 /* CAReplicatorLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A01F4781E2F6C8500E2F787 /* CAReplicatorLayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		5A01F4711E2F488500E2F787 /* AnimationType.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnimationType.plist; sourceTree = "<group>"; };
 		5A01F4731E2F4B7A00E2F787 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		5A01F4741E2F4B7A00E2F787 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		5A01F4771E2F6C8500E2F787 /* CAReplicatorLayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAReplicatorLayerViewController.h; sourceTree = "<group>"; };
+		5A01F4781E2F6C8500E2F787 /* CAReplicatorLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAReplicatorLayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				5A01F46D1E2F47C200E2F787 /* 圆形进度条 */,
+				5A01F4761E2F6C6700E2F787 /* CAReplicatorLayer */,
 				5A01F4561E2F45FE00E2F787 /* AppDelegate.h */,
 				5A01F4571E2F45FE00E2F787 /* AppDelegate.m */,
 				5A01F4731E2F4B7A00E2F787 /* BaseViewController.h */,
@@ -98,6 +102,15 @@
 				5A01F46F1E2F481600E2F787 /* CircularProgressViewController.m */,
 			);
 			name = "圆形进度条";
+			sourceTree = "<group>";
+		};
+		5A01F4761E2F6C6700E2F787 /* CAReplicatorLayer */ = {
+			isa = PBXGroup;
+			children = (
+				5A01F4771E2F6C8500E2F787 /* CAReplicatorLayerViewController.h */,
+				5A01F4781E2F6C8500E2F787 /* CAReplicatorLayerViewController.m */,
+			);
+			name = CAReplicatorLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +190,7 @@
 				5A01F4581E2F45FE00E2F787 /* AppDelegate.m in Sources */,
 				5A01F4551E2F45FE00E2F787 /* main.m in Sources */,
 				5A01F46C1E2F462800E2F787 /* RootViewController.m in Sources */,
+				5A01F4791E2F6C8500E2F787 /* CAReplicatorLayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +345,7 @@
 				5A01F4691E2F45FE00E2F787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

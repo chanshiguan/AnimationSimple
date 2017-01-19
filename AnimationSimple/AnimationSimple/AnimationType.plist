@@ -2,7 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>圆形进度条</key>
+	<key>CAShapeLayer圆形进度条</key>
 	<string>CircularProgressViewController</string>
+	<key>CAReplicatorLayer</key>
+	<string>CAReplicatorLayerViewController</string>
 </dict>
 </plist>
