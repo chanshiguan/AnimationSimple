@@ -33,7 +33,9 @@
     
     //进度条
     [self progressLayer];
+    
     //倒影
+    [self shadowLayer];
 }
 
 //=======layer================
@@ -152,27 +154,52 @@
     _progressLayer.backgroundColor = [UIColor lightGrayColor].CGColor;
     [self.view.layer addSublayer:_progressLayer];
     
-    CGFloat radius = 50/4.0;
-    CAShapeLayer *baseLayer = [CAShapeLayer layer];
-    baseLayer.frame = CGRectMake(50, 50, radius, radius);
-    baseLayer.fillColor = [UIColor redColor].CGColor;
-    baseLayer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(0, 0) radius:20 startAngle:0 endAngle:2*M_PI clockwise:YES].CGPath;
-    baseLayer.transform = CATransform3DMakeScale(0.01, 0.01, 0.01);
-    
     CAReplicatorLayer *replicator = [CAReplicatorLayer layer];
+    replicator.frame = _progressLayer.bounds;
     replicator.instanceCount = 10;
     CGFloat angle = 2 * M_PI / 10;
     replicator.instanceTransform = CATransform3DMakeRotation(angle, 0, 0, 1);
-    replicator.instanceDelay = 1 / 10;
-    [replicator addSublayer:baseLayer];
+    replicator.instanceDelay = 1.0 / 10.0;  //血的教训，整型和浮点型的重要性
     [_progressLayer addSublayer:replicator];
     
+    CGFloat radius = 20;
+    CAShapeLayer *baseLayer = [CAShapeLayer layer];
+    baseLayer.frame = CGRectMake(50, 50, radius, radius);
+    baseLayer.fillColor = [UIColor redColor].CGColor;
+    baseLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, radius, radius)].CGPath;
+    baseLayer.transform = CATransform3DMakeScale(0.01, 0.01, 0.01);
+    [replicator addSublayer:baseLayer];
+
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     animation.duration = 1;
     animation.fromValue = @1;
     animation.toValue = @0.1;
     animation.repeatCount = HUGE;
-//    animation.autoreverses = YES;
     [baseLayer addAnimation:animation forKey:nil];
+}
+
+- (void)shadowLayer
+{
+    CALayer *_shadowLayer = [CALayer layer];
+    _shadowLayer.frame = CGRectMake(LAYER_WIDTH, 64 + LAYER_WIDTH, LAYER_WIDTH, LAYER_WIDTH * 2);
+    _shadowLayer.backgroundColor = [UIColor whiteColor].CGColor;
+    [self.view.layer addSublayer:_shadowLayer];
+    
+    CALayer *baseLayer = [CALayer layer];
+    baseLayer.frame = CGRectMake(0, 0, LAYER_WIDTH, LAYER_WIDTH);
+    baseLayer.contents = (__bridge id)[UIImage imageNamed:@"demo"].CGImage;
+    
+    CAReplicatorLayer *replicator = [CAReplicatorLayer layer];
+    replicator.instanceCount = 2;
+    replicator.frame = _shadowLayer.bounds;
+    CATransform3D transform = CATransform3DIdentity;
+    transform = CATransform3DRotate(transform, M_PI, 1, 0, 0);
+    replicator.instanceTransform = transform;
+    replicator.instanceRedOffset = -0.1;
+    replicator.instanceGreenOffset = -0.1;
+    replicator.instanceBlueOffset = -0.1;
+    replicator.instanceAlphaOffset = -0.1;
+    [replicator addSublayer:baseLayer];
+    [_shadowLayer addSublayer:replicator];
 }
 @end
